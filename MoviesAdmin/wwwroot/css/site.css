@@ -12,6 +12,16 @@ html {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
+.btn primary {
+    background-color: #7a3bd1;
+    border-color: #7a3bd1;
+}
+
+.btn-primary:hover {
+    background-color: #8d50de;
+    border-color: #8d50de;
+}
+
 html {
   position: relative;
   min-height: 100%;
@@ -21,6 +31,12 @@ body {
   margin-bottom: 60px;
 }
 
+main {
+    background-color: #252525;
+    padding: 25px;
+    border-radius: 12px;
+}
+
 .form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
   color: var(--bs-secondary-color);
   text-align: end;
@@ -28,4 +44,82 @@ body {
 
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
   text-align: start;
+}
+
+body {
+    background-color: #1a1a1a;
+    color: #e8e8e8;
+}
+
+.custom-navbar {
+    background-color: #5c2d91;
+}
+
+.navbar-logo {
+    height: 55px;
+    width: auto;
+}
+
+.table {
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #252525;
+    color: #e8e8e8;
+    border-color: #444;
+}
+    
+.table th {
+     background-color: #5c2d91;
+     color: white;
+     border-color: #6f42c1;
+   }
+
+.table td {
+    background-color: #252525;
+    color: #e8e8e8;
+    border-color: #444;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #2d2d2d;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #3a3a3a;
+}
+
+.table {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.form-control {
+    background-color: #2a2a2a;
+    color: #f0f0f0;
+    border: 1px solid #555;
+}
+
+.form-control:focus {
+    background-color: #323232;
+    color: #ffffff;
+    border-color: #7a3bd1;
+}
+
+.control-label,
+.form-label {
+    color: #e8e8e8;
+}
+
+.btn-primary {
+    margin-top: 15px;
+}
+
+.btn-primary {
+    background-color: #5c2d91;
+    border-color: #5c2d91;
+}
+ 
+.btn-primary:hover {
+    background-color: #7143b6;
+    border-color: #7143b6;
 }
