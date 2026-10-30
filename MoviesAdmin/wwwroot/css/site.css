@@ -105,7 +105,7 @@ body {
     border-color: #7a3bd1;
 }
 
-.control-label,
+.form-label,
 .form-label {
     color: #e8e8e8;
 }
@@ -122,4 +122,29 @@ body {
 .btn-primary:hover {
     background-color: #7143b6;
     border-color: #7143b6;
+}
+
+.movie-thumb{
+    width: 60px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid #444;
+}
+.movie-poster {
+    width: 100%;
+    max-width: 320px;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #444;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+}
+
+.movie-description {
+    white-space: pre-line;
+}
+
+dt {
+    color: #b9a3e3;
 }

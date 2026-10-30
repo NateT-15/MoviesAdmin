@@ -10,40 +10,47 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit">
+        <form asp-action="Edit" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
             <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="Title" class="control-label"></label>
+            <input type="hidden" asp-for="ImageUrl" />
+
+            <div class="mb-3">
+                <label asp-for="Title" class="form-label"></label>
                 <input asp-for="Title" class="form-control" />
                 <span asp-validation-for="Title" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
+            <div class="mb-3">
+                <label asp-for="Description" class="form-label"></label>
                 <input asp-for="Description" class="form-control" />
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Genre" class="control-label"></label>
-                <input asp-for="Genre" class="form-control" />
-                <span asp-validation-for="Genre" class="text-danger"></span>
+            <div class="mb-3">
+                <label asp-for="GenreId" class="form-label"></label>
+                <select asp-for="GenreId" class="form-control" asp-items="ViewBag.GenreId"></select>
+                <span asp-validation-for="GenreId" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Rating" class="control-label"></label>
-                <input asp-for="Rating" class="form-control" />
-                <span asp-validation-for="Rating" class="text-danger"></span>
+            <div class="mb-3">
+                <label asp-for="AudienceRatingId" class="form-label"></label>
+                <select asp-for="AudienceRatingId" class="form-control" asp-items="ViewBag.AudienceRatingId"></select>
+                <span asp-validation-for="AudienceRatingId" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="RuntimeMinutes" class="control-label"></label>
+            <div class="mb-3">
+                <label asp-for="RuntimeMinutes" class="form-label"></label>
                 <input asp-for="RuntimeMinutes" class="form-control" />
                 <span asp-validation-for="RuntimeMinutes" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="ReleaseDate" class="control-label"></label>
+            <div class="mb-3">
+                <label asp-for="ReleaseDate" class="form-label"></label>
                 <input asp-for="ReleaseDate" class="form-control" />
                 <span asp-validation-for="ReleaseDate" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="mb-3">
+                <label for="ImageUpload"> Image Upload</label>
+                <input type="file" id="ImageUpload" name="ImageUpload" class="form-control" />
+            </div>
+            <div class="mb-3">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
@@ -55,5 +62,7 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

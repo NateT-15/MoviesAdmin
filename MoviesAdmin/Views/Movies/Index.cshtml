@@ -1,31 +1,26 @@
 @model IEnumerable<MoviesAdmin.Models.Movie>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Movies";
 }
 
-<h1>Index</h1>
+<h1>Movies</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
+<table class="table align-middle">
     <thead>
         <tr>
+            <th><!-- Movie Image --></th>
             <th>
                 @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Genre)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Rating)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RuntimeMinutes)
+                @Html.DisplayNameFor(model => model.AudienceRating)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.ReleaseDate)
@@ -34,32 +29,42 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(model => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.Genre)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.Rating)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.RuntimeMinutes)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.ReleaseDate)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @if (!string.IsNullOrEmpty(item.ImageUrl))
+                    {
+                        <img src="@item.ImageUrl" alt="@item.Title" class="movie-thumb" />
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @item.Genre?.Title
+                </td>
+                <td>
+                    @item.AudienceRating?.Title
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReleaseDate)
+                </td>
+                <td>
+                    @if (User.IsInRole("Administrator"))
+                    {
+                        <div>
+                            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        </div>
+                    }
+                    else
+                    {
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    }
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

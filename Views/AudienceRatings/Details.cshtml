@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Audience Rating Details</title>
+	<link href="~/css/site.css" rel="stylesheet" />
+</head>
+<body>
+	<div class="container">
+		<h1>Audience Rating Details</h1>
+		<div>
+			<h2>@Html.DisplayNameFor(model => model.Rating)</h2>
+			<p>@Html.DisplayFor(model => model.Rating)</p>
+			<h2>@Html.DisplayNameFor(model => model.Description)</h2>
+			<p>@Html.DisplayFor(model => model.Description)</p>
+		</div>
+		<p>
+			<a asp-action="Index" class="btn btn-secondary">Back to List</a>
+		</p>
+	</div>
+</body>
+</html>
