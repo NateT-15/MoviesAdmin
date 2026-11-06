@@ -22,6 +22,10 @@
         [ScaffoldColumn(false)]
         public AudienceRating AudienceRating { get; set; } = null!;
 
+        [ValidateNever]
+        [ScaffoldColumn(false)]
+        public List<CriticReview> CriticReviews { get; set; } = new();
+
         [Display(Name = "Runtime (Minutes)")]
         public int RuntimeMinutes { get; set; }
 

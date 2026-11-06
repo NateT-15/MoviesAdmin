@@ -44,8 +44,15 @@ public class MoviesController : Controller
             return NotFound();
         }
 
+        ViewBag.ReviewCount =
+            await _context.CriticReview
+                .CountAsync(r =>
+                    r.MovieId == movie.Id &&
+                    r.IsPublished);
+
         return View(movie);
     }
+
 
     // GET: MOVIES/Create
     [Authorize(Roles = "Administrator")]

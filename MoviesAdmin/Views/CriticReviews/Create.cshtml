@@ -1,0 +1,58 @@
+@model MoviesAdmin.Models.CriticReview
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create Review</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="mb-3">
+                <label asp-for="MovieId" class="form-label"></label>
+                <select asp-for="MovieId"
+                        class="form-control"
+                        asp-items="ViewBag.MovieId">
+                    <option value="">Select a Movie</option>
+                </select>
+                <span asp-validation-for="MovieId"
+                      class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Description" class="form-label"></label>
+                <textarea asp-for="Description" class="form-control" rows="6"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Rating" class="form-label"></label>
+                <select asp-for="Rating" class="form-control" asp-items="ViewBag.Ratings"><option value=""></option></select>
+                <span asp-validation-for="Rating" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="IsPublished" class="form-label"></label>
+                <input asp-for="IsPublished" class="form-check-input" />
+                <span asp-validation-for="IsPublished" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="CreatedDate" class="form-label"></label>
+                <input asp-for="CreatedDate" class="form-control" />
+                <span asp-validation-for="CreatedDate" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-primary btn-sm">Back to List</a>
+</div>
