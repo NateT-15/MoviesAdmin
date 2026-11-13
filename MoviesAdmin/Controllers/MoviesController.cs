@@ -21,10 +21,12 @@ public class MoviesController : Controller
     // GET: MOVIES/Index
     public async Task<IActionResult> Index()
     {
-        return View(await _context.Movie
+        List<Movie> movies = await _context.Movie
             .Include(m => m.Genre)
             .Include(m => m.AudienceRating)
-            .ToListAsync());
+            .ToListAsync();
+
+        return View(movies);
     }
 
     // GET: MOVIES/Details/5
