@@ -2,7 +2,9 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MoviesAdmin.Models;
+using Microsoft.AspNetCore.Authorization;
 
+[Authorize]
 public class CriticReviewsController : Controller
 {
     private readonly MoviesAdminContext _context;
